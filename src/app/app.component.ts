@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { CalendarComponent } from './calendar/calendar.component';
+import { Moment } from 'moment';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'concerts-programme';
+  @ViewChild('myCalendar', { static: true })
+  myCalendar: CalendarComponent;
+
+  dateSelected(value: Moment) {
+    alert(value);
+  }
 }
